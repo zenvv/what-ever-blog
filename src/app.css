@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+   font-family: 'Azeret Mono Variable', monospace;
+}
+
+@layer base {
+   * {
+      @apply border-theme-900/10;
+   }
+
+   body {
+      @apply bg-gradient-to-tl from-theme-100 to-theme-50 text-theme-900;
+   }
+}
+
+[data-button-root] {
+   @apply px-3 py-1.5 bg-theme-600 text-theme-50 rounded hover:bg-theme-600/90 inline-flex items-center justify-center gap-2 shadow-sm transition-all active:bg-theme-300 active:text-theme-600 active:scale-[98%];
+}
+
+[data-button-root].outlined {
+   @apply bg-transparent border border-theme-800/60 text-theme-900 hover:bg-theme-800/10;
+}
+
+[data-button-root].link {
+   @apply p-0 bg-transparent text-inherit underline decoration-inherit hover:decoration-theme-500 decoration-1 hover:font-semibold underline-offset-4 hover:underline-offset-2 hover:bg-theme-500/10 rounded-none hover:text-theme-500;
+}
+
+input,
+textarea {
+   @apply flex justify-center items-center transition-all w-full accent-theme-500;
+   @apply px-3 py-2 text-sm rounded;
+   @apply bg-theme-100 text-theme-900 focus:border-theme-900 border placeholder:text-theme-800/50 focus:bg-theme-50;
+   @apply outline outline-offset-4 outline-transparent focus:outline-theme-800/50;
+   @apply disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+[data-tooltip-trigger] {
+   @apply flex items-center justify-center hover:bg-theme-200 hover:text-theme-500 bg-transparent transition-all rounded-md p-1.5 text-theme-800/80;
+}
+
+[data-tooltip-content] {
+   @apply bg-theme-50 border border-theme-800 rounded-md text-xs flex items-center justify-center p-4 py-2 text-theme-800 shadow-[3px_3px_0] shadow-theme-800;
+}
+
+[data-tooltip-arrow] {
+   @apply bg-theme-50 border-t border-l border-theme-800;
+}
