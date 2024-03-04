@@ -25,12 +25,14 @@
 
 		<span class="flex items-center justify-start gap-2 mt-4 p-0 m-0">
 			<label for="desc" class="leading-none m-0 p-0">description</label>
-			<Tooltip.Root>
+			<Tooltip.Root openDelay={50} closeDelay={300}>
 				<Tooltip.Trigger class="m-0"><InfoIcon size="14" /></Tooltip.Trigger>
 				<Tooltip.Content
 					transitionConfig={{ x: -20, y: 0, duration: 100 }}
 					side="left"
-					sideOffset={8}
+					sideOffset={12}
+					fitViewport
+					align="end"
 					transition={flyAndScale}
 				>
 					<Tooltip.Arrow />

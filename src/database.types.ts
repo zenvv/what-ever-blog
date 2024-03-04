@@ -6,7 +6,6 @@ export type Database = {
 			articles: {
 				Row: {
 					authorId: string | null;
-					categories: string[] | null;
 					content: string | null;
 					created_at: string;
 					description: string | null;
@@ -16,7 +15,6 @@ export type Database = {
 				};
 				Insert: {
 					authorId?: string | null;
-					categories?: string[] | null;
 					content?: string | null;
 					created_at?: string;
 					description?: string | null;
@@ -26,7 +24,6 @@ export type Database = {
 				};
 				Update: {
 					authorId?: string | null;
-					categories?: string[] | null;
 					content?: string | null;
 					created_at?: string;
 					description?: string | null;
@@ -34,7 +31,22 @@ export type Database = {
 					published?: boolean | null;
 					title?: string | null;
 				};
-				Relationships: [];
+				Relationships: [
+					{
+						foreignKeyName: 'articles_authorId_fkey';
+						columns: ['authorId'];
+						isOneToOne: false;
+						referencedRelation: 'users';
+						referencedColumns: ['id'];
+					},
+					{
+						foreignKeyName: 'public_articles_authorId_fkey';
+						columns: ['authorId'];
+						isOneToOne: false;
+						referencedRelation: 'users';
+						referencedColumns: ['id'];
+					}
+				];
 			};
 			cats: {
 				Row: {
@@ -68,6 +80,29 @@ export type Database = {
 					name?: string;
 				};
 				Relationships: [];
+			};
+			users: {
+				Row: {
+					id: string;
+					username: string;
+				};
+				Insert: {
+					id: string;
+					username: string;
+				};
+				Update: {
+					id?: string;
+					username?: string;
+				};
+				Relationships: [
+					{
+						foreignKeyName: 'public_users_id_fkey';
+						columns: ['id'];
+						isOneToOne: true;
+						referencedRelation: 'users';
+						referencedColumns: ['id'];
+					}
+				];
 			};
 		};
 		Views: {

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { supabase } from '$lib/supabase/supabase';
+
 	export let title: string;
 	export let description: string;
 	export let author: string;

@@ -22,7 +22,7 @@ const config = {
 			}
 		}
 	},
-	plugins: [require('@tailwindcss/typography')]
+	plugins: [require('@tailwindcss/typography'), require('tailwindcss-patterns')]
 } satisfies Config;
 
 export default config;

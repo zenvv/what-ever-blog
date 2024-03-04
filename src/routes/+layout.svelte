@@ -31,10 +31,10 @@
 	});
 </script>
 
-<div class="flex flex-col items-center justify-start w-full mx-auto max-w-4xl min-h-screen">
+<div class="w-full mx-auto max-w-4xl min-h-screen flex flex-col justify-between items-center">
 	<Navbar {data} />
 
-	<div class="mt-28 flex-1 size-full">
+	<div class="size-full flex-1 mt-28">
 		<Transition url={$page.url.href}>
 			<slot />
 		</Transition>
@@ -46,7 +46,8 @@
 		created by <Button.Root
 			href="https://www.github.com/zenvv"
 			target="_blank"
-			class="link ml-2 font-normal">zenvv</Button.Root
-		>
+			class="link ml-2 font-normal group"
+			>zenvv
+		</Button.Root>
 	</footer>
 </div>
