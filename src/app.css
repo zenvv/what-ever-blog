@@ -8,7 +8,8 @@
 
 @layer base {
    * {
-      @apply border-theme-900/10;
+      @apply border-theme-300/50;
+      @apply prose-pre:border prose-pre:font-semibold prose-h1:font-black prose-h2:font-black prose-h3:font-bold prose-h4:font-bold prose-h5:font-semibold;
    }
 
    body {
@@ -20,8 +21,20 @@
    @apply px-3 py-1.5 bg-theme-600 text-theme-50 rounded hover:bg-theme-600/90 inline-flex items-center justify-center gap-2 shadow-sm transition-all active:bg-theme-300 active:text-theme-600 active:scale-[98%];
 }
 
+[data-button-root].df-dark {
+   @apply px-3 py-1.5 bg-theme-100 text-theme-600 rounded hover:bg-theme-100/90 inline-flex items-center justify-center gap-2 shadow-sm transition-all active:bg-theme-400 active:text-theme-100 active:scale-[98%];
+}
+
+[data-button-root].secondary {
+   @apply px-3 py-1.5 bg-theme-300 text-theme-800 rounded hover:bg-theme-300/80 inline-flex items-center justify-center gap-2 shadow-sm transition-all active:bg-theme-400 active:text-theme-100 active:scale-[98%];
+}
+
 [data-button-root].outlined {
    @apply bg-transparent border border-theme-800/60 text-theme-900 hover:bg-theme-800/10;
+}
+
+[data-button-root].outlined-dark {
+   @apply bg-transparent border border-theme-100/60 text-theme-100 hover:bg-theme-200/10;
 }
 
 [data-button-root].link {
@@ -42,9 +55,9 @@ textarea {
 }
 
 [data-tooltip-content] {
-   @apply bg-theme-50 border border-theme-800 rounded-md text-xs flex items-center justify-center p-4 py-2 text-theme-800 shadow-[3px_3px_0] shadow-theme-800;
+   @apply bg-theme-700 border border-theme-200 rounded-lg text-xs flex items-center justify-center p-4 py-2 text-theme-100;
 }
 
 [data-tooltip-arrow] {
-   @apply bg-theme-50 border-t border-l border-theme-800;
+   @apply bg-theme-700 border-t border-l border-theme-200;
 }

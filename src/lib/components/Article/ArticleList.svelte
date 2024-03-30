@@ -4,7 +4,7 @@
 	export let content: any[] = [];
 </script>
 
-<span class="grid w-full grid-cols-2 gap-3 h-full">
+<span class="size-full grid grid-cols-2 gap-4 transition-all">
 	{#each content as art}
 		<ArticleCard
 			title={art.title}

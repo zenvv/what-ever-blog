@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { flyAndScale } from '$lib/utils';
-	import { Avatar, Button } from 'bits-ui';
+	import { Avatar, Button, Dialog } from 'bits-ui';
 	import { DropdownMenu } from 'bits-ui';
-	import { Edit, LogIn, LogOut, SquareUserRound } from 'lucide-svelte';
-	import { elasticIn, elasticInOut, elasticOut, expoInOut, quadInOut } from 'svelte/easing';
-	import { slide } from 'svelte/transition';
+	import { Edit, HandMetal, LogIn, LogOut, Search, SquareUserRound } from 'lucide-svelte';
+	import { expoInOut } from 'svelte/easing';
+	import { fade, slide } from 'svelte/transition';
 
 	export let data: any;
 	let { supabase } = data;
@@ -15,16 +15,43 @@
 </script>
 
 <nav
-	class="flex items-center mx-auto justify-between w-full border-b-2 border-dotted border-theme-500/25 py-4 mt-4 text-sm text-theme-900 fixed top-0 max-w-4xl bg-theme-50/50 backdrop-blur-xl"
+	class="flex items-center mx-auto justify-between w-full outline-dashed outline-2 -outline-offset-[6px] outline-theme-500/25 p-5 px-7 rounded-xl mt-5 text-sm text-theme-900 fixed z-20 top-0 max-w-4xl bg-theme-300/25 backdrop-blur-xl"
 >
 	<a
 		href="/"
-		class="active:text-theme-400 transition-all tracking-tighter hover:tracking-normal font-semibold text-theme-500 text-lg hover:font-[800] hover:text-theme-600"
-		>what-ever.blog</a
+		class="active:text-theme-400 transition-all tracking-[-0.02rem] hover:tracking-wide font-[800] text-theme-500 text-lg hover:font-[900] hover:text-theme-600 group flex items-center gap-2 justify-start"
 	>
+		<HandMetal size="20" strokeWidth={2.75} />
+		FUZZY.BRAINS
+	</a>
 
 	<span class="flex items-center gap-2">
 		{#if data.session}
+			<Dialog.Root>
+				<Dialog.Trigger>
+					<Button.Root class="secondary">
+						<Search strokeWidth={3} size="16" />search
+					</Button.Root>
+				</Dialog.Trigger>
+				<Dialog.Portal>
+					<Dialog.Overlay
+						transition={fade}
+						transitionConfig={{ duration: 150 }}
+						class="fixed inset-0 z-50 bg-theme-900/20"
+					/>
+					<Dialog.Content
+						transition={flyAndScale}
+						class="fixed left-[50%] top-20 z-50 w-full translate-x-[-50%] outline-none max-w-3xl bg-transparent border-none"
+					>
+						<input
+							type="search"
+							placeholder="search..."
+							class="text-xl p-8 bg-transparent border-none outline-none"
+						/>
+					</Dialog.Content>
+				</Dialog.Portal>
+			</Dialog.Root>
+
 			<Button.Root href="/new"><Edit size="16" />create</Button.Root>
 
 			<DropdownMenu.Root loop>
@@ -43,12 +70,12 @@
 					align="end"
 					transitionConfig={{ duration: 250, easing: expoInOut }}
 					sideOffset={8}
-					class=" bg-theme-50 border shadow-[3px_3px_0] shadow-theme-800 border-theme-800 min-w-[200px] p-2 rounded"
+					class=" bg-theme-100/85 border backdrop-blur-lg border-theme-400 min-w-[200px] p-2 rounded-lg shadow-lg z-50 shadow-theme-500/10"
 				>
 					<DropdownMenu.Label class="p-2 font-semibold flex flex-col gap-1 leading-none text-sm">
 						<span>{userData.email}</span>
 					</DropdownMenu.Label>
-					<DropdownMenu.Separator class="my-1 block h-px bg-theme-500" />
+					<DropdownMenu.Separator class="my-1 block h-px bg-theme-200" />
 					<DropdownMenu.Group>
 						<DropdownMenu.Item
 							class="text-theme-900 font-semibold hover:bg-theme-200 rounded hover:font-bold p-2 hover:text-theme-500 cursor-pointer text-sm"

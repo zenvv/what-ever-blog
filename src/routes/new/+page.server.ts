@@ -11,6 +11,7 @@ export const actions: Actions = {
 			authorId: auth?.user.id,
 			title: body.title as string,
 			description: body.desc as string,
+			content: body.content as string,
 			published: true
 		});
 		if (err) {

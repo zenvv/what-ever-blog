@@ -51,6 +51,7 @@
 		"remark-unwrap-images": "^4.0.0",
 		"shiki": "^1.1.7",
 		"supabase": "^1.145.4",
+		"svelte-exmarkdown": "^3.0.3",
 		"tailwind-merge": "^2.2.1",
 		"tailwindcss-patterns": "^0.1.2"
 	}

@@ -12,7 +12,7 @@
 
 <span class="flex items-center justify-center h-full w-full relative">
 	<div
-		class="w-full h-[80vh] bg-theme-100 rounded-bl-[32px] rounded-tr-[32px] pattern-architect-theme-500/50 pattern-architect-scale-[1] border border-theme-500/50"
+		class="w-full h-[80vh] bg-theme-100 rounded-bl-[32px] rounded-tr-[32px] pattern-architect-theme-500/25 pattern-architect-scale-[1] border border-theme-500/50"
 	></div>
 	<div
 		class="flex flex-col items-center justify-center w-fit p-4 py-10 absolute z-10 bg-theme-50 rounded-2xl border border-theme-500 shadow-[5px_5px_0] shadow-theme-600/50"
